@@ -1,0 +1,163 @@
+<div class="container">
+  <h1>People Management</h1>
+
+  <div class="actions">
+    <button (click)="loadPeople()">Refresh</button>
+    <button (click)="toggleForm()">Add</button>
+  </div>
+
+  <form #personForm="ngForm" (ngSubmit)="addPerson()" class="person-form" [class.folded]="isFormFolded">
+
+    <div class="form-row">
+      <div class="form-columns">
+        <div class="form-group">
+          <label for="firstName">First Name:</label>
+          <input type="text" id="firstName" name="firstName" [(ngModel)]="newPerson.firstName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="lastName">Last Name:</label>
+          <input type="text" id="lastName" name="lastName" [(ngModel)]="newPerson.lastName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="streetName">Street Name:</label>
+          <input type="text" id="streetName" name="streetName" [(ngModel)]="newPerson.streetName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="houseNumber">House Number:</label>
+          <input type="text" id="houseNumber" name="houseNumber" [(ngModel)]="newPerson.houseNumber" required>
+        </div>
+      </div>
+      <div class="form-columns">
+
+        <div class="form-group">
+          <label for="apartmentNumber">Apartment Number:</label>
+          <input type="text" id="apartmentNumber" name="apartmentNumber" [(ngModel)]="newPerson.apartmentNumber"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label for="postalCode">Postal Code:</label>
+          <input type="text" id="postalCode" name="postalCode" [(ngModel)]="newPerson.postalCode" required>
+        </div>
+
+        <div class="form-group">
+          <label for="town">Town:</label>
+          <input type="text" id="town" name="town" [(ngModel)]="newPerson.town" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phoneNumber">Phone Number:</label>
+          <input type="text" id="phoneNumber" name="phoneNumber" [(ngModel)]="newPerson.phoneNumber" required>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-columns">
+      <label for="dateOfBirth">Date of Birth:</label>
+      <input type="date" id="dateOfBirth" name="dateOfBirth" [(ngModel)]="newPerson.dateOfBirth" required>
+    </div>
+
+    <button type="submit">Save</button>
+  </form>
+
+
+
+  <form *ngIf="editedPerson != null" #editForm="ngForm" (ngSubmit)="saveEdit()" class="person-form"
+    [class.folded]="isEditFormFolded">
+
+    <div class="form-row">
+      <div class="form-columns">
+        <div class="form-group">
+          <label for="editFirstName">First Name:</label>
+          <input type="text" id="editFirstName" name="editFirstName" [(ngModel)]="editedPerson.firstName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="editLastName">Last Name:</label>
+          <input type="text" id="editLastName" name="editLastName" [(ngModel)]="editedPerson.lastName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="editStreetName">Street Name:</label>
+          <input type="text" id="editStreetName" name="editStreetName" [(ngModel)]="editedPerson.streetName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="editHouseNumber">House Number:</label>
+          <input type="text" id="editHouseNumber" name="editHouseNumber" [(ngModel)]="editedPerson.houseNumber"
+            required>
+        </div>
+      </div>
+      <div class="form-columns">
+
+        <div class="form-group">
+          <label for="editApartmentNumber">Apartment Number:</label>
+          <input type="text" id="editApartmentNumber" name="editApartmentNumber"
+            [(ngModel)]="editedPerson.apartmentNumber" required>
+        </div>
+
+        <div class="form-group">
+          <label for="editPostalCode">Postal Code:</label>
+          <input type="text" id="editPostalCode" name="editPostalCode" [(ngModel)]="editedPerson.postalCode" required>
+        </div>
+
+        <div class="form-group">
+          <label for="editTown">Town:</label>
+          <input type="text" id="editTown" name="editTown" [(ngModel)]="editedPerson.town" required>
+        </div>
+
+        <div class="form-group">
+          <label for="editPhoneNumber">Phone Number:</label>
+          <input type="text" id="editPhoneNumber" name="editPhoneNumber" [(ngModel)]="editedPerson.phoneNumber"
+            required>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-columns">
+      <label for="editDateOfBirth">Date of Birth:</label>
+      <input type="date" id="editDateOfBirth" name="editDateOfBirth" [(ngModel)]="editedPerson.dateOfBirth" required>
+    </div>
+
+    <button type="submit">Save</button>
+  </form>
+
+
+
+  <table class="people-table">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Street Name</th>
+        <th>House Number</th>
+        <th>Apartment Number</th>
+        <th>Postal Code</th>
+        <th>Town</th>
+        <th>Phone Number</th>
+        <th>Date of Birth</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of people">
+        <td>{{ person.firstName }}</td>
+        <td>{{ person.lastName }}</td>
+        <td>{{ person.streetName }}</td>
+        <td>{{ person.houseNumber }}</td>
+        <td>{{ person.apartmentNumber }}</td>
+        <td>{{ person.postalCode }}</td>
+        <td>{{ person.town }}</td>
+        <td>{{ person.phoneNumber }}</td>
+        <td>{{ person.dateOfBirth | date:'mediumDate' }}</td>
+        <td>
+          <button (click)="editPerson(person)">Edit</button>
+          <button (click)="deletePerson(person.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

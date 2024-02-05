@@ -1,0 +1,105 @@
+.container {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .actions {
+    margin-bottom: 20px;
+  }
+  
+  .person-form {
+    margin-bottom: 20px;
+    transition: max-height 0.3s ease-out;
+    overflow: hidden;
+  }
+  
+  .folded {
+    max-height: 0;
+    margin-bottom: 0;
+  }
+  
+  .people-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .people-table th, .people-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .people-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .people-table button {
+    padding: 5px 10px;
+    margin-right: 5px;
+  }
+  
+  .person-form {
+    min-width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .form-columns {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    width: 48%; 
+    margin: 10px;
+  }
+
+  .form-row
+  {
+    display: flex;
+    width: 100%; 
+  }
+  
+  .form-group {
+    width: 100%;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+  }
+  
+  button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  .folded {
+    display: none;
+  }
+  
